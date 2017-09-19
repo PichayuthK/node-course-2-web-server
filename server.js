@@ -21,7 +21,7 @@ app.use((req, res, next) => {
 });
 // third middleware
 app.use((req,res,next)=>{
-    res.render('maintenance.hbs');
+    //res.render('maintenance.hbs');
     next();
 });
 
@@ -58,11 +58,18 @@ app.get('/about', (req, res) => {
     });
 });
 
+app.get('/project', (req,res)=>{
+    res.render('project.hbs',{
+        pageTitle: 'Project'
+    });
+});
+
 app.get('/bad', (req, res) => {
     res.send({
         message: 'Error page'
     });
 });
+
 
 app.listen(port, () => {
     console.log(`Server is up on port ${port}`);
